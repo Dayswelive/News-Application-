@@ -2,15 +2,28 @@ import React, { Component } from "react";
 
 export class Newsitem extends Component {
   render() {
-    let { title, description, imageUrl } = this.props;
+    let { title, description, imageUrl, newsUrl } = this.props;
     return (
       <div className="my-3">
         <div className="card" style={{ width: "18rem" }}>
-          <img src={imageUrl} className="card-img-top" alt="..." />
+          <img
+            src={
+              !imageUrl
+                ? "https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1219926_1296x729.jpg"
+                : imageUrl
+            }
+            className="card-img-top"
+            alt="..."
+          />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
-            <a href="/" className="btn-sm  btn btn-primary">
+            <a
+              rel="noreferrer"
+              href={newsUrl}
+              target="_blank"
+              className="btn-sm  btn btn-dark"
+            >
               Read More
             </a>
           </div>
